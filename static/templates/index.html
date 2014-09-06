@@ -1,0 +1,17 @@
+<head>
+    <script src="static/JS/rsvp.min.js"></script>
+    <script src="https://cdn.firebase.com/js/client/1.0.17/firebase.js"></script>
+    <script src="https://cdn.firebase.com/libs/geofire/2.0.0/geofire.min.js"></script>
+</head>
+<body>
+<script type="text/javascript">
+    var firebaseRef = new Firebase();
+    var geoFire = new GeoFire(firebaseRef);
+    // startLoc will be either center of city, or if user is in bouding box, user location
+    geofire.set("startLoc", [lat, lon]).then(function() {
+        console.log("Provided key has been added to GeoFire.");
+    }, function(error) {
+        console.log("Error: " + error);
+    });
+    
+    
